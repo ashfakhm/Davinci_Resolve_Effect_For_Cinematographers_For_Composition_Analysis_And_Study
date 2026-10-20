@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build and Publish Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build plugin bundle
+        run: |
+          python3 tools/build_cinematic_toolkit.py
+
+      - name: Run verification tests
+        run: |
+          python3 tests/test_cinematic_toolkit.py
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/Cinematic_Composition_Toolkit.drfx
+            dist/Cinematic Composition Toolkit.setting
+          generate_release_notes: true
+          draft: false
+          prerelease: false

@@ -4,8 +4,8 @@ Cinematic Composition Toolkit lets you analyze, compose, and study cinema frames
 
 Packaged as a lightweight `.drfx` plugin (under 13 KB) built with a single-pass procedural vector engine in Fusion. Zero external image dependencies, zero missing media errors, and real-time 60+ FPS hardware acceleration across all timeline resolutions.
 
-<!-- SCREENSHOT PLACEHOLDER: HERO OVERVIEW -->
-<!-- Recommended size: 1920x1080 or 1280x720 PNG showing the overlay active over a film frame -->
+**Quick Download**: Download the latest [`Cinematic_Composition_Toolkit.drfx`](../../releases/latest) from the [Releases](../../releases) section and double-click to install.
+
 ![Cinematic Composition Toolkit in DaVinci Resolve](docs/images/hero_showcase.png)
 
 ---
@@ -36,11 +36,11 @@ The result is the **Cinematic Composition Toolkit**: a mathematically calibrated
 
 ## Visual Walkthrough & Inspector Controls
 
-<!-- SCREENSHOT PLACEHOLDER: RESOLVE INSPECTOR CONTROLS -->
-<!-- Recommended screenshot: DaVinci Resolve Inspector showing the Guide 1, Guide 2, and Style tabs -->
-![DaVinci Resolve Inspector Controls](docs/images/inspector_ui.png)
-
 The toolkit integrates natively into the DaVinci Resolve Inspector under three organized tabs:
+
+| Guide 1 (Primary Controls) | Guide 2 (Cross-Format Engine) | Style (Color & Line Weight) |
+| :---: | :---: | :---: |
+| ![Guide 1 Inspector Tab](docs/images/inspector_guide1.png) | ![Guide 2 Inspector Tab](docs/images/inspector_guide2.png) | ![Style Inspector Tab](docs/images/inspector_style.png) |
 
 * **Guide 1**: Primary composition overlay, aspect ratio preset, 1-click horizontal/vertical mirroring, 360-degree free rotation, frame boundary outline, viewfinder letterbox shading, and live custom dimensions.
 * **Guide 2**: Simultaneous secondary channel for cross-format extraction (e.g. previewing a 9:16 mobile crop or 16:9 streaming delivery while composing for 2.39:1 theatrical widescreen) with independent color, opacity, rotation, and framing.
@@ -49,10 +49,6 @@ The toolkit integrates natively into the DaVinci Resolve Inspector under three o
 ---
 
 ## Dual Guide Cross-Format Framing Engine
-
-<!-- SCREENSHOT PLACEHOLDER: DUAL GUIDE CROSS-FORMAT -->
-<!-- Recommended screenshot: A 2.39:1 Scope primary guide with a 9:16 or 16:9 secondary guide active over footage -->
-![Dual Guide Cross-Format Framing](docs/images/dual_guide_cross_format.png)
 
 High-end theatrical releases and commercial campaigns routinely deliver across multiple conflicting aspect ratios simultaneously. A shot composed for a 2.39:1 theatrical screen must also protect for a 16:9 television broadcast and extract cleanly into a 9:16 vertical crop for social channels.
 
@@ -65,9 +61,11 @@ With dual guide channels active at the same time:
 
 ## Comprehensive 14-Guide Composition Library
 
-<!-- SCREENSHOT PLACEHOLDER: COMPOSITION STUDY -->
-<!-- Recommended screenshot: Fibonacci Spiral or Harmonic Armature overlaid across an iconic film still -->
-![Deconstructing Cinematic Composition](docs/images/composition_study.png)
+![Deconstructing Film Composition with Golden Ratio](docs/images/golden_ratio_study.png)
+
+| Composition Guides Menu | Calibrated Aspect Presets Menu |
+| :---: | :---: |
+| ![14 Composition Guides Dropdown](docs/images/menu_composition_guides.png) | ![16 Cinema Aspect Ratios Dropdown](docs/images/menu_aspect_presets.png) |
 
 Arranged logically from foundational camera coverage to classical geometry:
 

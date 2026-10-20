@@ -1,0 +1,3612 @@
+{
+	Tools = ordered() {
+		CinematicCompositionToolkit = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Templates:/Cinematic_Composition_Toolkit.drfx/Edit/Effects/Cinematic Guides/"
+					}
+				}
+			},
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "PrimaryMerge",
+					Source = "Background",
+				},
+
+				-- ===== PAGE 1: GUIDE 1 =====
+				GuideSelect = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "GuideType",
+					Name = "Composition Guide",
+					Page = "Guide 1",
+				},
+				FlipHorizontal = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "FlipH",
+					Name = "Flip Horizontal (Mirror)",
+					Page = "Guide 1",
+				},
+				FlipVertical = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "FlipV",
+					Name = "Flip Vertical (Invert)",
+					Page = "Guide 1",
+				},
+				RotationAngleControl = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "RotationAngle",
+					Name = "Rotation Angle (0-360°)",
+					Default = 0.0,
+					Page = "Guide 1",
+				},
+				AspectSelect = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "AspectPreset",
+					Name = "Frame / Aspect Ratio",
+					Page = "Guide 1",
+				},
+				ShowAspectOutline = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "ShowOutline",
+					Name = "Show Frame Outline",
+					Page = "Guide 1",
+				},
+				SurroundShadingControl = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SurroundShading",
+					Name = "Surround Shading (Letterbox Matte)",
+					Default = 0.0,
+					Page = "Guide 1",
+				},
+				CustomActiveWidth = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "CustomWidth",
+					Name = "Custom Frame Width",
+					Default = 1.0,
+					Page = "Guide 1",
+				},
+				CustomActiveHeight = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "CustomHeight",
+					Name = "Custom Frame Height",
+					Default = 1.0,
+					Page = "Guide 1",
+				},
+
+				-- ===== PAGE 2: GUIDE 2 (CROSS-FORMAT ENGINE) =====
+				EnableSecondaryGuide = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "EnableSecondary",
+					Name = "Enable Guide 2",
+					Page = "Guide 2",
+				},
+				SecGuideSelect = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecGuideType",
+					Name = "Guide 2 Composition",
+					Page = "Guide 2",
+				},
+				SecFlipHorizontal = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecFlipH",
+					Name = "Guide 2 Flip Horizontal (Mirror)",
+					Page = "Guide 2",
+				},
+				SecFlipVertical = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecFlipV",
+					Name = "Guide 2 Flip Vertical (Invert)",
+					Page = "Guide 2",
+				},
+				SecRotationAngleControl = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecRotationAngle",
+					Name = "Guide 2 Rotation Angle (0-360°)",
+					Default = 0.0,
+					Page = "Guide 2",
+				},
+				SecAspectSelect = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecAspectPreset",
+					Name = "Guide 2 Aspect Ratio",
+					Page = "Guide 2",
+				},
+				SecShowAspectOutline = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecShowOutline",
+					Name = "Guide 2 Show Outline",
+					Page = "Guide 2",
+				},
+				SecColorRed = InstanceInput {
+					SourceOp = "Sec_GuideLines",
+					Source = "TopLeftRed",
+					Name = "Guide 2 Color",
+					ControlGroup = 20,
+					Default = 0.2,
+					Page = "Guide 2",
+				},
+				SecColorGreen = InstanceInput {
+					SourceOp = "Sec_GuideLines",
+					Source = "TopLeftGreen",
+					ControlGroup = 20,
+					Default = 0.85,
+					Page = "Guide 2",
+				},
+				SecColorBlue = InstanceInput {
+					SourceOp = "Sec_GuideLines",
+					Source = "TopLeftBlue",
+					ControlGroup = 20,
+					Default = 1.0,
+					Page = "Guide 2",
+				},
+				SecondaryOpacity = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecOpacity",
+					Name = "Guide 2 Opacity",
+					Default = 0.75,
+					Page = "Guide 2",
+				},
+				SecCustomActiveWidth = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecCustomWidth",
+					Name = "Guide 2 Custom Width",
+					Default = 1.0,
+					Page = "Guide 2",
+				},
+				SecCustomActiveHeight = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "SecCustomHeight",
+					Name = "Guide 2 Custom Height",
+					Default = 1.0,
+					Page = "Guide 2",
+				},
+
+				-- ===== PAGE 3: STYLE =====
+				ColorRed = InstanceInput {
+					SourceOp = "Pri_GuideLines",
+					Source = "TopLeftRed",
+					Name = "Primary Color",
+					ControlGroup = 6,
+					Default = 1.0,
+					Page = "Style",
+				},
+				ColorGreen = InstanceInput {
+					SourceOp = "Pri_GuideLines",
+					Source = "TopLeftGreen",
+					ControlGroup = 6,
+					Default = 1.0,
+					Page = "Style",
+				},
+				ColorBlue = InstanceInput {
+					SourceOp = "Pri_GuideLines",
+					Source = "TopLeftBlue",
+					ControlGroup = 6,
+					Default = 1.0,
+					Page = "Style",
+				},
+				MasterOpacity = InstanceInput {
+					SourceOp = "PrimaryMerge",
+					Source = "Blend",
+					Name = "Primary Opacity",
+					Default = 0.85,
+					Page = "Style",
+				},
+				LineThickness = InstanceInput {
+					SourceOp = "GuideCtrl",
+					Source = "Thickness",
+					Name = "Line Thickness",
+					Default = 0.002,
+					Page = "Style",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "LetterboxMerge",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				GuideCtrl = AlphaDivide {
+					PassThrough = true,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						GuideType = Input { Value = 0, },
+						AspectPreset = Input { Value = 0, },
+						Thickness = Input { Value = 0.002, },
+						FlipH = Input { Value = 0, },
+						FlipV = Input { Value = 0, },
+						RotationAngle = Input { Value = 0.0, },
+						ShowOutline = Input { Value = 0, },
+						SurroundShading = Input { Value = 0.0, },
+						CustomWidth = Input { Value = 1.0, },
+						CustomHeight = Input { Value = 1.0, },
+
+						EnableSecondary = Input { Value = 0, },
+						SecGuideType = Input { Value = 0, },
+						SecAspectPreset = Input { Value = 0, },
+						SecShowOutline = Input { Value = 0, },
+						SecOpacity = Input { Value = 0.75, },
+						SecFlipH = Input { Value = 0, },
+						SecFlipV = Input { Value = 0, },
+						SecRotationAngle = Input { Value = 0.0, },
+						SecCustomWidth = Input { Value = 1.0, },
+						SecCustomHeight = Input { Value = 1.0, },
+					},
+					UserControls = ordered() {
+						GuideType = {
+							{ CCS_AddString = "Rule of Thirds" },
+							{ CCS_AddString = "Headroom & Eyeline (Dialogue Framing)" },
+							{ CCS_AddString = "Looking Room (Lead Room & Eyeline)" },
+							{ CCS_AddString = "Center Reticle (ARRI Optical Crosshairs)" },
+							{ CCS_AddString = "Quadrant Grid (2x2 Symmetrical Quadrants)" },
+							{ CCS_AddString = "Negative Space (Character Isolation)" },
+							{ CCS_AddString = "Phi Grid (Golden Ratio Grid - 1:1.618:1)" },
+							{ CCS_AddString = "Golden Ratio (Spiral + Fibonacci Boxes)" },
+							{ CCS_AddString = "Golden Spiral (Fibonacci Spiral Only)" },
+							{ CCS_AddString = "Golden Section (Fibonacci Boxes Only)" },
+							{ CCS_AddString = "Golden Triangles (Dynamic Symmetry)" },
+							{ CCS_AddString = "Harmonic Armature (14-Line Classical)" },
+							{ CCS_AddString = "Safe Areas (93% Action / 90% Title / 80% Text)" },
+							{ CCS_AddString = "None (Frame Outline Only)" },
+							INP_Integer = true,
+							INPID_InputControl = "ComboControl",
+							CC_LabelPosition = "Horizontal",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 1 Composition",
+						},
+						AspectPreset = {
+							{ CCS_AddString = "Full Frame (Match Timeline)" },
+							{ CCS_AddString = "2.39:1 Cinema Scope (Theatrical Widescreen)" },
+							{ CCS_AddString = "2.00:1 Univisium (18:9 / Streaming Widescreen)" },
+							{ CCS_AddString = "1.90:1 Digital IMAX" },
+							{ CCS_AddString = "1.85:1 Flat Cinema (Standard Theatrical)" },
+							{ CCS_AddString = "1.66:1 European Flat (Kubrick / A24)" },
+							{ CCS_AddString = "1.43:1 IMAX GT Laser (70mm Full Height)" },
+							{ CCS_AddString = "1.33:1 (4:3 Classic Academy)" },
+							{ CCS_AddString = "9:16 Vertical (Reels / TikTok / Shorts)" },
+							{ CCS_AddString = "1:1 Square (Social / Art House)" },
+							{ CCS_AddString = "1.618:1 Golden Rectangle (Phi Dynamic)" },
+							{ CCS_AddString = "2.236:1 Root 5 Dynamic Symmetry" },
+							{ CCS_AddString = "1.732:1 Root 3 Dynamic Symmetry" },
+							{ CCS_AddString = "1.414:1 Root 2 Dynamic Symmetry" },
+							{ CCS_AddString = "2.35:1 Scope (Vintage Panavision Pre-1970)" },
+							{ CCS_AddString = "Custom (Adjust Sliders Below)" },
+							INP_Integer = true,
+							INPID_InputControl = "ComboControl",
+							CC_LabelPosition = "Horizontal",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 1 Aspect Ratio",
+						},
+						Thickness = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.002,
+							INP_MinAllowed = 0.0005,
+							INP_MaxAllowed = 0.015,
+							INP_MinScale = 0.001,
+							INP_MaxScale = 0.01,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Line Thickness",
+						},
+						FlipH = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Flip Horizontal (Guide 1)",
+						},
+						FlipV = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Flip Vertical (Guide 1)",
+						},
+						RotationAngle = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.0,
+							INP_MinAllowed = -360.0,
+							INP_MaxAllowed = 360.0,
+							INP_MinScale = 0.0,
+							INP_MaxScale = 360.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Rotation Angle (Guide 1)",
+						},
+						ShowOutline = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Show Frame Outline",
+						},
+						SurroundShading = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.0,
+							INP_MinAllowed = 0.0,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.0,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Surround Shading (Letterbox Matte)",
+						},
+						CustomWidth = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 1.0,
+							INP_MinAllowed = 0.05,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.1,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Custom Frame Width",
+						},
+						CustomHeight = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 1.0,
+							INP_MinAllowed = 0.05,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.1,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Custom Frame Height",
+						},
+
+						-- Secondary Guide Controls (Guide 2)
+						EnableSecondary = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Enable Guide 2",
+						},
+						SecGuideType = {
+							{ CCS_AddString = "Rule of Thirds" },
+							{ CCS_AddString = "Headroom & Eyeline (Dialogue Framing)" },
+							{ CCS_AddString = "Looking Room (Lead Room & Eyeline)" },
+							{ CCS_AddString = "Center Reticle (ARRI Optical Crosshairs)" },
+							{ CCS_AddString = "Quadrant Grid (2x2 Symmetrical Quadrants)" },
+							{ CCS_AddString = "Negative Space (Character Isolation)" },
+							{ CCS_AddString = "Phi Grid (Golden Ratio Grid - 1:1.618:1)" },
+							{ CCS_AddString = "Golden Ratio (Spiral + Fibonacci Boxes)" },
+							{ CCS_AddString = "Golden Spiral (Fibonacci Spiral Only)" },
+							{ CCS_AddString = "Golden Section (Fibonacci Boxes Only)" },
+							{ CCS_AddString = "Golden Triangles (Dynamic Symmetry)" },
+							{ CCS_AddString = "Harmonic Armature (14-Line Classical)" },
+							{ CCS_AddString = "Safe Areas (93% Action / 90% Title / 80% Text)" },
+							{ CCS_AddString = "None (Frame Outline Only)" },
+							INP_Integer = true,
+							INPID_InputControl = "ComboControl",
+							CC_LabelPosition = "Horizontal",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Composition",
+						},
+						SecAspectPreset = {
+							{ CCS_AddString = "Full Frame (Match Timeline)" },
+							{ CCS_AddString = "2.39:1 Cinema Scope (Theatrical Widescreen)" },
+							{ CCS_AddString = "2.00:1 Univisium (18:9 / Streaming Widescreen)" },
+							{ CCS_AddString = "1.90:1 Digital IMAX" },
+							{ CCS_AddString = "1.85:1 Flat Cinema (Standard Theatrical)" },
+							{ CCS_AddString = "1.66:1 European Flat (Kubrick / A24)" },
+							{ CCS_AddString = "1.43:1 IMAX GT Laser (70mm Full Height)" },
+							{ CCS_AddString = "1.33:1 (4:3 Classic Academy)" },
+							{ CCS_AddString = "9:16 Vertical (Reels / TikTok / Shorts)" },
+							{ CCS_AddString = "1:1 Square (Social / Art House)" },
+							{ CCS_AddString = "1.618:1 Golden Rectangle (Phi Dynamic)" },
+							{ CCS_AddString = "2.236:1 Root 5 Dynamic Symmetry" },
+							{ CCS_AddString = "1.732:1 Root 3 Dynamic Symmetry" },
+							{ CCS_AddString = "1.414:1 Root 2 Dynamic Symmetry" },
+							{ CCS_AddString = "2.35:1 Scope (Vintage Panavision Pre-1970)" },
+							{ CCS_AddString = "Custom (Adjust Sliders Below)" },
+							INP_Integer = true,
+							INPID_InputControl = "ComboControl",
+							CC_LabelPosition = "Horizontal",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Aspect Ratio",
+						},
+						SecShowOutline = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Show Outline",
+						},
+						SecOpacity = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.75,
+							INP_MinAllowed = 0.0,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.0,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Opacity",
+						},
+						SecCustomWidth = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 1.0,
+							INP_MinAllowed = 0.05,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.1,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Custom Width",
+						},
+						SecCustomHeight = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 1.0,
+							INP_MinAllowed = 0.05,
+							INP_MaxAllowed = 1.0,
+							INP_MinScale = 0.1,
+							INP_MaxScale = 1.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Guide 2 Custom Height",
+						},
+						SecFlipH = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Flip Horizontal (Guide 2)",
+						},
+						SecFlipV = {
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_Default = 0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Flip Vertical (Guide 2)",
+						},
+						SecRotationAngle = {
+							INPID_InputControl = "SliderControl",
+							INP_Default = 0.0,
+							INP_MinAllowed = -360.0,
+							INP_MaxAllowed = 360.0,
+							INP_MinScale = 0.0,
+							INP_MaxScale = 360.0,
+							LINKID_DataType = "Number",
+							LINKS_Name = "Rotation Angle (Guide 2)",
+						},
+					},
+				},
+
+
+				-- ===== Pri GUIDE 0: RULE OF THIRDS =====
+				Pri_Thirds_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+					},
+				},
+				Pri_Thirds_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Thirds_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Thirds_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.166667 },
+									{ Linear = true, X = 0.5, Y = -0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Thirds_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Thirds_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Thirds_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 6: PHI GRID (GOLDEN RATIO) =====
+				Pri_Phi_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.118034, Y = -0.5 },
+									{ Linear = true, X = -0.118034, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Thirds_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Phi_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.118034, Y = -0.5 },
+									{ Linear = true, X = 0.118034, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Phi_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Phi_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.118034 },
+									{ Linear = true, X = 0.5, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Phi_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Phi_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.118034 },
+									{ Linear = true, X = 0.5, Y = 0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Phi_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 7 & 8: GOLDEN SPIRAL =====
+				Pri_Spiral_Mask = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.455072, Y = -0.5 },
+									{ Linear = true, X = -0.45435, Y = -0.449351 },
+									{ Linear = true, X = -0.452186, Y = -0.398832 },
+									{ Linear = true, X = -0.448585, Y = -0.348572 },
+									{ Linear = true, X = -0.443558, Y = -0.298701 },
+									{ Linear = true, X = -0.437115, Y = -0.249347 },
+									{ Linear = true, X = -0.429275, Y = -0.200637 },
+									{ Linear = true, X = -0.420058, Y = -0.152695 },
+									{ Linear = true, X = -0.409486, Y = -0.105644 },
+									{ Linear = true, X = -0.397587, Y = -0.059606 },
+									{ Linear = true, X = -0.384392, Y = -0.014698 },
+									{ Linear = true, X = -0.369934, Y = 0.028964 },
+									{ Linear = true, X = -0.354251, Y = 0.071268 },
+									{ Linear = true, X = -0.337383, Y = 0.112106 },
+									{ Linear = true, X = -0.319374, Y = 0.151372 },
+									{ Linear = true, X = -0.300268, Y = 0.188967 },
+									{ Linear = true, X = -0.280116, Y = 0.224793 },
+									{ Linear = true, X = -0.258969, Y = 0.258758 },
+									{ Linear = true, X = -0.236882, Y = 0.290776 },
+									{ Linear = true, X = -0.21391, Y = 0.320763 },
+									{ Linear = true, X = -0.190114, Y = 0.348644 },
+									{ Linear = true, X = -0.165554, Y = 0.374347 },
+									{ Linear = true, X = -0.140294, Y = 0.397805 },
+									{ Linear = true, X = -0.114397, Y = 0.418958 },
+									{ Linear = true, X = -0.087931, Y = 0.437752 },
+									{ Linear = true, X = -0.060964, Y = 0.454139 },
+									{ Linear = true, X = -0.033564, Y = 0.468077 },
+									{ Linear = true, X = -0.005802, Y = 0.47953 },
+									{ Linear = true, X = 0.02225, Y = 0.488468 },
+									{ Linear = true, X = 0.050521, Y = 0.494869 },
+									{ Linear = true, X = 0.078938, Y = 0.498717 },
+									{ Linear = true, X = 0.107428, Y = 0.5 },
+									{ Linear = true, X = 0.125036, Y = 0.499207 },
+									{ Linear = true, X = 0.142599, Y = 0.496829 },
+									{ Linear = true, X = 0.160071, Y = 0.492873 },
+									{ Linear = true, X = 0.177408, Y = 0.487349 },
+									{ Linear = true, X = 0.194566, Y = 0.480271 },
+									{ Linear = true, X = 0.2115, Y = 0.471657 },
+									{ Linear = true, X = 0.228167, Y = 0.461529 },
+									{ Linear = true, X = 0.244523, Y = 0.449913 },
+									{ Linear = true, X = 0.260528, Y = 0.43684 },
+									{ Linear = true, X = 0.27614, Y = 0.422342 },
+									{ Linear = true, X = 0.291319, Y = 0.406457 },
+									{ Linear = true, X = 0.306026, Y = 0.389226 },
+									{ Linear = true, X = 0.320223, Y = 0.370692 },
+									{ Linear = true, X = 0.333874, Y = 0.350904 },
+									{ Linear = true, X = 0.346943, Y = 0.329913 },
+									{ Linear = true, X = 0.359398, Y = 0.307771 },
+									{ Linear = true, X = 0.371206, Y = 0.284536 },
+									{ Linear = true, X = 0.382336, Y = 0.260268 },
+									{ Linear = true, X = 0.392762, Y = 0.235029 },
+									{ Linear = true, X = 0.402454, Y = 0.208884 },
+									{ Linear = true, X = 0.411389, Y = 0.181899 },
+									{ Linear = true, X = 0.419544, Y = 0.154145 },
+									{ Linear = true, X = 0.426898, Y = 0.125691 },
+									{ Linear = true, X = 0.433432, Y = 0.096612 },
+									{ Linear = true, X = 0.439129, Y = 0.066983 },
+									{ Linear = true, X = 0.443974, Y = 0.036878 },
+									{ Linear = true, X = 0.447956, Y = 0.006375 },
+									{ Linear = true, X = 0.451063, Y = -0.024446 },
+									{ Linear = true, X = 0.453288, Y = -0.055509 },
+									{ Linear = true, X = 0.454626, Y = -0.086731 },
+									{ Linear = true, X = 0.455072, Y = -0.118034 },
+									{ Linear = true, X = 0.454796, Y = -0.13738 },
+									{ Linear = true, X = 0.45397, Y = -0.156677 },
+									{ Linear = true, X = 0.452594, Y = -0.175874 },
+									{ Linear = true, X = 0.450674, Y = -0.194923 },
+									{ Linear = true, X = 0.448213, Y = -0.213775 },
+									{ Linear = true, X = 0.445219, Y = -0.232381 },
+									{ Linear = true, X = 0.441698, Y = -0.250693 },
+									{ Linear = true, X = 0.43766, Y = -0.268665 },
+									{ Linear = true, X = 0.433115, Y = -0.28625 },
+									{ Linear = true, X = 0.428075, Y = -0.303403 },
+									{ Linear = true, X = 0.422552, Y = -0.32008 },
+									{ Linear = true, X = 0.416562, Y = -0.336239 },
+									{ Linear = true, X = 0.410119, Y = -0.351838 },
+									{ Linear = true, X = 0.40324, Y = -0.366836 },
+									{ Linear = true, X = 0.395942, Y = -0.381196 },
+									{ Linear = true, X = 0.388245, Y = -0.39488 },
+									{ Linear = true, X = 0.380167, Y = -0.407854 },
+									{ Linear = true, X = 0.371731, Y = -0.420083 },
+									{ Linear = true, X = 0.362957, Y = -0.431538 },
+									{ Linear = true, X = 0.353867, Y = -0.442187 },
+									{ Linear = true, X = 0.344486, Y = -0.452005 },
+									{ Linear = true, X = 0.334837, Y = -0.460965 },
+									{ Linear = true, X = 0.324946, Y = -0.469045 },
+									{ Linear = true, X = 0.314837, Y = -0.476223 },
+									{ Linear = true, X = 0.304536, Y = -0.482483 },
+									{ Linear = true, X = 0.29407, Y = -0.487807 },
+									{ Linear = true, X = 0.283466, Y = -0.492181 },
+									{ Linear = true, X = 0.272751, Y = -0.495595 },
+									{ Linear = true, X = 0.261953, Y = -0.49804 },
+									{ Linear = true, X = 0.251098, Y = -0.49951 },
+									{ Linear = true, X = 0.240216, Y = -0.5 },
+									{ Linear = true, X = 0.233491, Y = -0.499697 },
+									{ Linear = true, X = 0.226782, Y = -0.498789 },
+									{ Linear = true, X = 0.220108, Y = -0.497278 },
+									{ Linear = true, X = 0.213486, Y = -0.495168 },
+									{ Linear = true, X = 0.206932, Y = -0.492464 },
+									{ Linear = true, X = 0.200464, Y = -0.489174 },
+									{ Linear = true, X = 0.194098, Y = -0.485305 },
+									{ Linear = true, X = 0.18785, Y = -0.480869 },
+									{ Linear = true, X = 0.181737, Y = -0.475875 },
+									{ Linear = true, X = 0.175774, Y = -0.470337 },
+									{ Linear = true, X = 0.169976, Y = -0.46427 },
+									{ Linear = true, X = 0.164358, Y = -0.457688 },
+									{ Linear = true, X = 0.158936, Y = -0.450609 },
+									{ Linear = true, X = 0.153722, Y = -0.443051 },
+									{ Linear = true, X = 0.148729, Y = -0.435032 },
+									{ Linear = true, X = 0.143972, Y = -0.426575 },
+									{ Linear = true, X = 0.139462, Y = -0.4177 },
+									{ Linear = true, X = 0.13521, Y = -0.408431 },
+									{ Linear = true, X = 0.131228, Y = -0.39879 },
+									{ Linear = true, X = 0.127526, Y = -0.388803 },
+									{ Linear = true, X = 0.124113, Y = -0.378496 },
+									{ Linear = true, X = 0.120998, Y = -0.367895 },
+									{ Linear = true, X = 0.118189, Y = -0.357027 },
+									{ Linear = true, X = 0.115694, Y = -0.34592 },
+									{ Linear = true, X = 0.113518, Y = -0.334602 },
+									{ Linear = true, X = 0.111667, Y = -0.323103 },
+									{ Linear = true, X = 0.110146, Y = -0.311452 },
+									{ Linear = true, X = 0.108959, Y = -0.299679 },
+									{ Linear = true, X = 0.108109, Y = -0.287815 },
+									{ Linear = true, X = 0.107598, Y = -0.275889 },
+									{ Linear = true, X = 0.107428, Y = -0.263932 },
+									{ Linear = true, X = 0.107533, Y = -0.256542 },
+									{ Linear = true, X = 0.107849, Y = -0.249172 },
+									{ Linear = true, X = 0.108374, Y = -0.241839 },
+									{ Linear = true, X = 0.109108, Y = -0.234563 },
+									{ Linear = true, X = 0.110048, Y = -0.227362 },
+									{ Linear = true, X = 0.111192, Y = -0.220256 },
+									{ Linear = true, X = 0.112536, Y = -0.213261 },
+									{ Linear = true, X = 0.114079, Y = -0.206396 },
+									{ Linear = true, X = 0.115815, Y = -0.199679 },
+									{ Linear = true, X = 0.11774, Y = -0.193127 },
+									{ Linear = true, X = 0.119849, Y = -0.186757 },
+									{ Linear = true, X = 0.122137, Y = -0.180585 },
+									{ Linear = true, X = 0.124598, Y = -0.174627 },
+									{ Linear = true, X = 0.127226, Y = -0.168898 },
+									{ Linear = true, X = 0.130014, Y = -0.163413 },
+									{ Linear = true, X = 0.132954, Y = -0.158186 },
+									{ Linear = true, X = 0.136039, Y = -0.153231 },
+									{ Linear = true, X = 0.139261, Y = -0.148559 },
+									{ Linear = true, X = 0.142613, Y = -0.144184 },
+									{ Linear = true, X = 0.146085, Y = -0.140116 },
+									{ Linear = true, X = 0.149668, Y = -0.136367 },
+									{ Linear = true, X = 0.153353, Y = -0.132944 },
+									{ Linear = true, X = 0.157132, Y = -0.129858 },
+									{ Linear = true, X = 0.160993, Y = -0.127116 },
+									{ Linear = true, X = 0.164928, Y = -0.124725 },
+									{ Linear = true, X = 0.168925, Y = -0.122691 },
+									{ Linear = true, X = 0.172975, Y = -0.121021 },
+									{ Linear = true, X = 0.177068, Y = -0.119716 },
+									{ Linear = true, X = 0.181193, Y = -0.118783 },
+									{ Linear = true, X = 0.185339, Y = -0.118221 },
+									{ Linear = true, X = 0.189496, Y = -0.118034 },
+									{ Linear = true, X = 0.192065, Y = -0.11815 },
+									{ Linear = true, X = 0.194627, Y = -0.118497 },
+									{ Linear = true, X = 0.197176, Y = -0.119074 },
+									{ Linear = true, X = 0.199706, Y = -0.11988 },
+									{ Linear = true, X = 0.202209, Y = -0.120912 },
+									{ Linear = true, X = 0.204679, Y = -0.122169 },
+									{ Linear = true, X = 0.207111, Y = -0.123647 },
+									{ Linear = true, X = 0.209498, Y = -0.125342 },
+									{ Linear = true, X = 0.211833, Y = -0.127249 },
+									{ Linear = true, X = 0.21411, Y = -0.129364 },
+									{ Linear = true, X = 0.216325, Y = -0.131682 },
+									{ Linear = true, X = 0.218471, Y = -0.134196 },
+									{ Linear = true, X = 0.220542, Y = -0.1369 },
+									{ Linear = true, X = 0.222534, Y = -0.139787 },
+									{ Linear = true, X = 0.22444, Y = -0.142849 },
+									{ Linear = true, X = 0.226258, Y = -0.14608 },
+									{ Linear = true, X = 0.22798, Y = -0.14947 },
+									{ Linear = true, X = 0.229604, Y = -0.15301 },
+									{ Linear = true, X = 0.231125, Y = -0.156693 },
+									{ Linear = true, X = 0.232539, Y = -0.160507 },
+									{ Linear = true, X = 0.233843, Y = -0.164444 },
+									{ Linear = true, X = 0.235033, Y = -0.168494 },
+									{ Linear = true, X = 0.236106, Y = -0.172645 },
+									{ Linear = true, X = 0.237059, Y = -0.176887 },
+									{ Linear = true, X = 0.23789, Y = -0.18121 },
+									{ Linear = true, X = 0.238597, Y = -0.185603 },
+									{ Linear = true, X = 0.239178, Y = -0.190053 },
+									{ Linear = true, X = 0.239631, Y = -0.19455 },
+									{ Linear = true, X = 0.239956, Y = -0.199082 },
+									{ Linear = true, X = 0.240151, Y = -0.203637 },
+									{ Linear = true, X = 0.240216, Y = -0.208204 },
+									{ Linear = true, X = 0.240176, Y = -0.211027 },
+									{ Linear = true, X = 0.240055, Y = -0.213842 },
+									{ Linear = true, X = 0.239855, Y = -0.216643 },
+									{ Linear = true, X = 0.239575, Y = -0.219422 },
+									{ Linear = true, X = 0.239215, Y = -0.222172 },
+									{ Linear = true, X = 0.238779, Y = -0.224887 },
+									{ Linear = true, X = 0.238265, Y = -0.227559 },
+									{ Linear = true, X = 0.237676, Y = -0.230181 },
+									{ Linear = true, X = 0.237013, Y = -0.232746 },
+									{ Linear = true, X = 0.236277, Y = -0.235249 },
+									{ Linear = true, X = 0.235472, Y = -0.237682 },
+									{ Linear = true, X = 0.234598, Y = -0.24004 },
+									{ Linear = true, X = 0.233658, Y = -0.242315 },
+									{ Linear = true, X = 0.232654, Y = -0.244504 },
+									{ Linear = true, X = 0.231589, Y = -0.246599 },
+									{ Linear = true, X = 0.230466, Y = -0.248595 },
+									{ Linear = true, X = 0.229288, Y = -0.250488 },
+									{ Linear = true, X = 0.228057, Y = -0.252272 },
+									{ Linear = true, X = 0.226777, Y = -0.253944 },
+									{ Linear = true, X = 0.225451, Y = -0.255497 },
+									{ Linear = true, X = 0.224082, Y = -0.25693 },
+									{ Linear = true, X = 0.222674, Y = -0.258237 },
+									{ Linear = true, X = 0.221231, Y = -0.259416 },
+									{ Linear = true, X = 0.219756, Y = -0.260463 },
+									{ Linear = true, X = 0.218253, Y = -0.261376 },
+									{ Linear = true, X = 0.216726, Y = -0.262153 },
+									{ Linear = true, X = 0.215179, Y = -0.262791 },
+									{ Linear = true, X = 0.213616, Y = -0.263289 },
+									{ Linear = true, X = 0.21204, Y = -0.263646 },
+									{ Linear = true, X = 0.210457, Y = -0.26386 },
+									{ Linear = true, X = 0.208869, Y = -0.263932 },
+									{ Linear = true, X = 0.207888, Y = -0.263888 },
+									{ Linear = true, X = 0.206909, Y = -0.263755 },
+									{ Linear = true, X = 0.205935, Y = -0.263535 },
+									{ Linear = true, X = 0.204969, Y = -0.263227 },
+									{ Linear = true, X = 0.204013, Y = -0.262833 },
+									{ Linear = true, X = 0.203069, Y = -0.262352 },
+									{ Linear = true, X = 0.202141, Y = -0.261788 },
+									{ Linear = true, X = 0.201229, Y = -0.261141 },
+									{ Linear = true, X = 0.200337, Y = -0.260412 },
+									{ Linear = true, X = 0.199467, Y = -0.259604 },
+									{ Linear = true, X = 0.198621, Y = -0.258719 },
+									{ Linear = true, X = 0.197802, Y = -0.257759 },
+									{ Linear = true, X = 0.19701, Y = -0.256726 },
+									{ Linear = true, X = 0.19625, Y = -0.255623 },
+									{ Linear = true, X = 0.195521, Y = -0.254453 },
+									{ Linear = true, X = 0.194827, Y = -0.253219 },
+									{ Linear = true, X = 0.194169, Y = -0.251925 },
+									{ Linear = true, X = 0.193549, Y = -0.250572 },
+									{ Linear = true, X = 0.192968, Y = -0.249166 },
+									{ Linear = true, X = 0.192428, Y = -0.247709 },
+									{ Linear = true, X = 0.19193, Y = -0.246205 },
+									{ Linear = true, X = 0.191475, Y = -0.244658 },
+									{ Linear = true, X = 0.191066, Y = -0.243073 },
+									{ Linear = true, X = 0.190702, Y = -0.241452 },
+									{ Linear = true, X = 0.190384, Y = -0.239801 },
+									{ Linear = true, X = 0.190114, Y = -0.238123 },
+									{ Linear = true, X = 0.189892, Y = -0.236423 },
+									{ Linear = true, X = 0.189719, Y = -0.234706 },
+									{ Linear = true, X = 0.189595, Y = -0.232975 },
+									{ Linear = true, X = 0.18952, Y = -0.231235 },
+									{ Linear = true, X = 0.189496, Y = -0.22949 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Phi_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_EyeH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189451, Y = -0.223607 },
+									{ Linear = true, X = 0.217577, Y = -0.223607 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Spiral_Mask", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_EyeV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.203514, Y = -0.248607 },
+									{ Linear = true, X = 0.203514, Y = -0.198607 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_EyeH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 7 & 9: FIBONACCI BOXES =====
+				Pri_Fib_Border = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.910144, },
+						Height = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Pri_Fib_EyeV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.5 },
+									{ Linear = true, X = 0.107428, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Border", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.118034 },
+									{ Linear = true, X = 0.455072, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut3 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.240216, Y = -0.5 },
+									{ Linear = true, X = 0.240216, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut4 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.263932 },
+									{ Linear = true, X = 0.240216, Y = -0.263932 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut3", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut5 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189496, Y = -0.263932 },
+									{ Linear = true, X = 0.189496, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut4", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Fib_Cut6 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 7 or GuideCtrl.GuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189496, Y = -0.208204 },
+									{ Linear = true, X = 0.240216, Y = -0.208204 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut5", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 10: GOLDEN TRIANGLES =====
+				Pri_Tri_Diag = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Fib_Cut6", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Tri_P1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = -0.25965, Y = -0.25965 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Tri_Diag", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Tri_P2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.5, Y = -0.5 },
+									{ Linear = true, X = 0.25965, Y = 0.25965 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Tri_P1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 11: HARMONIC ARMATURE =====
+				Pri_Diag_D1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Tri_P2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_D2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_D1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_VC = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_D2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_HC = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_VC", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_R1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_HC", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_R2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_R1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_R3 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+									{ Linear = true, X = -0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_R2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Diag_R4 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.5, Y = 0.5 },
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_R3", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 7: QUADRANT GRID (2x2 SYMMETRY) =====
+				Pri_Quad_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Diag_R4", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_TL_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.28, Y = 0.25 },
+									{ Linear = true, X = -0.22, Y = 0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_TL_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.25, Y = 0.22 },
+									{ Linear = true, X = -0.25, Y = 0.28 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_TL_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_TR_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.22, Y = 0.25 },
+									{ Linear = true, X = 0.28, Y = 0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_TL_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_TR_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.25, Y = 0.22 },
+									{ Linear = true, X = 0.25, Y = 0.28 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_TR_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_BL_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.28, Y = -0.25 },
+									{ Linear = true, X = -0.22, Y = -0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_TR_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_BL_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.25, Y = -0.28 },
+									{ Linear = true, X = -0.25, Y = -0.22 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_BL_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_BR_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.22, Y = -0.25 },
+									{ Linear = true, X = 0.28, Y = -0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_BL_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Quad_BR_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.25, Y = -0.28 },
+									{ Linear = true, X = 0.25, Y = -0.22 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_BR_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 8: HEADROOM & EYELINE (DIALOGUE) =====
+				Pri_HR_Eye = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Quad_BR_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_Phi = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.118034 },
+									{ Linear = true, X = 0.5, Y = 0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_Eye", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_Top = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.35 },
+									{ Linear = true, X = 0.5, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_Phi", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_Plumb = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_Top", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_EyeLH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.196667, Y = 0.166667 },
+									{ Linear = true, X = -0.136667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_Plumb", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_EyeLV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = 0.136667 },
+									{ Linear = true, X = -0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_EyeLH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_EyeRH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.136667, Y = 0.166667 },
+									{ Linear = true, X = 0.196667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_EyeLV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_EyeRV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = 0.136667 },
+									{ Linear = true, X = 0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_EyeRH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_SubjL = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_EyeRV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_HR_SubjR = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_SubjL", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 2: LOOKING ROOM / LEAD ROOM =====
+				Pri_Look_Eyeline_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_HR_SubjR", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Look_Subj_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_Eyeline_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Look_EyeCH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.136667, Y = 0.166667 },
+									{ Linear = true, X = 0.196667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_Subj_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Look_EyeCV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = 0.136667 },
+									{ Linear = true, X = 0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_EyeCH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Look_Lead_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_EyeCV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Look_Center_Tick = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = 0.136667 },
+									{ Linear = true, X = 0.0, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_Lead_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 5: NEGATIVE SPACE / ISOLATION =====
+				Pri_Iso_Ground = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.166667 },
+									{ Linear = true, X = 0.5, Y = -0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Look_Center_Tick", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Iso_Boundary = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Iso_Ground", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Iso_Sky = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Iso_Boundary", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Iso_Subj_CH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.373333, Y = -0.333333 },
+									{ Linear = true, X = -0.293333, Y = -0.333333 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Iso_Sky", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Iso_Subj_CV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.333333, Y = -0.373333 },
+									{ Linear = true, X = -0.333333, Y = -0.293333 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Iso_Subj_CH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 3: PRECISION VIEWFINDER RETICLE =====
+				Pri_Cross_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.08, Y = 0.0 },
+									{ Linear = true, X = -0.015, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Iso_Subj_CV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Cross_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.015, Y = 0.0 },
+									{ Linear = true, X = 0.08, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Cross_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Cross_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.08 },
+									{ Linear = true, X = 0.0, Y = -0.015 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Cross_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Cross_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = 0.015 },
+									{ Linear = true, X = 0.0, Y = 0.08 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Cross_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Cross_DH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.003, Y = 0.0 },
+									{ Linear = true, X = 0.003, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Cross_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Cross_DV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.003 },
+									{ Linear = true, X = 0.0, Y = 0.003 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Pri_Cross_DH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri GUIDE 12: SAFE AREAS =====
+				Pri_Safe_Action = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.93, },
+						Height = Input { Value = 0.93, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Pri_Cross_DV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Safe_Title = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.90, },
+						Height = Input { Value = 0.90, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Pri_Safe_Action", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Pri_Safe_Text = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.80, },
+						Height = Input { Value = 0.80, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.GuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Pri_Safe_Title", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Pri FRAME OUTLINE =====
+				Pri_Frame_Outline_Mask = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 1.0, },
+						Height = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.ShowOutline == 1, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Pri_Safe_Text", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+
+				-- ===== Sec GUIDE 0: RULE OF THIRDS =====
+				Sec_Thirds_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+					},
+				},
+				Sec_Thirds_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Thirds_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Thirds_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.166667 },
+									{ Linear = true, X = 0.5, Y = -0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Thirds_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Thirds_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 0, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Thirds_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 6: PHI GRID (GOLDEN RATIO) =====
+				Sec_Phi_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.118034, Y = -0.5 },
+									{ Linear = true, X = -0.118034, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Thirds_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Phi_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.118034, Y = -0.5 },
+									{ Linear = true, X = 0.118034, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Phi_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Phi_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.118034 },
+									{ Linear = true, X = 0.5, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Phi_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Phi_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 6, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.118034 },
+									{ Linear = true, X = 0.5, Y = 0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Phi_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 7 & 8: GOLDEN SPIRAL =====
+				Sec_Spiral_Mask = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.455072, Y = -0.5 },
+									{ Linear = true, X = -0.45435, Y = -0.449351 },
+									{ Linear = true, X = -0.452186, Y = -0.398832 },
+									{ Linear = true, X = -0.448585, Y = -0.348572 },
+									{ Linear = true, X = -0.443558, Y = -0.298701 },
+									{ Linear = true, X = -0.437115, Y = -0.249347 },
+									{ Linear = true, X = -0.429275, Y = -0.200637 },
+									{ Linear = true, X = -0.420058, Y = -0.152695 },
+									{ Linear = true, X = -0.409486, Y = -0.105644 },
+									{ Linear = true, X = -0.397587, Y = -0.059606 },
+									{ Linear = true, X = -0.384392, Y = -0.014698 },
+									{ Linear = true, X = -0.369934, Y = 0.028964 },
+									{ Linear = true, X = -0.354251, Y = 0.071268 },
+									{ Linear = true, X = -0.337383, Y = 0.112106 },
+									{ Linear = true, X = -0.319374, Y = 0.151372 },
+									{ Linear = true, X = -0.300268, Y = 0.188967 },
+									{ Linear = true, X = -0.280116, Y = 0.224793 },
+									{ Linear = true, X = -0.258969, Y = 0.258758 },
+									{ Linear = true, X = -0.236882, Y = 0.290776 },
+									{ Linear = true, X = -0.21391, Y = 0.320763 },
+									{ Linear = true, X = -0.190114, Y = 0.348644 },
+									{ Linear = true, X = -0.165554, Y = 0.374347 },
+									{ Linear = true, X = -0.140294, Y = 0.397805 },
+									{ Linear = true, X = -0.114397, Y = 0.418958 },
+									{ Linear = true, X = -0.087931, Y = 0.437752 },
+									{ Linear = true, X = -0.060964, Y = 0.454139 },
+									{ Linear = true, X = -0.033564, Y = 0.468077 },
+									{ Linear = true, X = -0.005802, Y = 0.47953 },
+									{ Linear = true, X = 0.02225, Y = 0.488468 },
+									{ Linear = true, X = 0.050521, Y = 0.494869 },
+									{ Linear = true, X = 0.078938, Y = 0.498717 },
+									{ Linear = true, X = 0.107428, Y = 0.5 },
+									{ Linear = true, X = 0.125036, Y = 0.499207 },
+									{ Linear = true, X = 0.142599, Y = 0.496829 },
+									{ Linear = true, X = 0.160071, Y = 0.492873 },
+									{ Linear = true, X = 0.177408, Y = 0.487349 },
+									{ Linear = true, X = 0.194566, Y = 0.480271 },
+									{ Linear = true, X = 0.2115, Y = 0.471657 },
+									{ Linear = true, X = 0.228167, Y = 0.461529 },
+									{ Linear = true, X = 0.244523, Y = 0.449913 },
+									{ Linear = true, X = 0.260528, Y = 0.43684 },
+									{ Linear = true, X = 0.27614, Y = 0.422342 },
+									{ Linear = true, X = 0.291319, Y = 0.406457 },
+									{ Linear = true, X = 0.306026, Y = 0.389226 },
+									{ Linear = true, X = 0.320223, Y = 0.370692 },
+									{ Linear = true, X = 0.333874, Y = 0.350904 },
+									{ Linear = true, X = 0.346943, Y = 0.329913 },
+									{ Linear = true, X = 0.359398, Y = 0.307771 },
+									{ Linear = true, X = 0.371206, Y = 0.284536 },
+									{ Linear = true, X = 0.382336, Y = 0.260268 },
+									{ Linear = true, X = 0.392762, Y = 0.235029 },
+									{ Linear = true, X = 0.402454, Y = 0.208884 },
+									{ Linear = true, X = 0.411389, Y = 0.181899 },
+									{ Linear = true, X = 0.419544, Y = 0.154145 },
+									{ Linear = true, X = 0.426898, Y = 0.125691 },
+									{ Linear = true, X = 0.433432, Y = 0.096612 },
+									{ Linear = true, X = 0.439129, Y = 0.066983 },
+									{ Linear = true, X = 0.443974, Y = 0.036878 },
+									{ Linear = true, X = 0.447956, Y = 0.006375 },
+									{ Linear = true, X = 0.451063, Y = -0.024446 },
+									{ Linear = true, X = 0.453288, Y = -0.055509 },
+									{ Linear = true, X = 0.454626, Y = -0.086731 },
+									{ Linear = true, X = 0.455072, Y = -0.118034 },
+									{ Linear = true, X = 0.454796, Y = -0.13738 },
+									{ Linear = true, X = 0.45397, Y = -0.156677 },
+									{ Linear = true, X = 0.452594, Y = -0.175874 },
+									{ Linear = true, X = 0.450674, Y = -0.194923 },
+									{ Linear = true, X = 0.448213, Y = -0.213775 },
+									{ Linear = true, X = 0.445219, Y = -0.232381 },
+									{ Linear = true, X = 0.441698, Y = -0.250693 },
+									{ Linear = true, X = 0.43766, Y = -0.268665 },
+									{ Linear = true, X = 0.433115, Y = -0.28625 },
+									{ Linear = true, X = 0.428075, Y = -0.303403 },
+									{ Linear = true, X = 0.422552, Y = -0.32008 },
+									{ Linear = true, X = 0.416562, Y = -0.336239 },
+									{ Linear = true, X = 0.410119, Y = -0.351838 },
+									{ Linear = true, X = 0.40324, Y = -0.366836 },
+									{ Linear = true, X = 0.395942, Y = -0.381196 },
+									{ Linear = true, X = 0.388245, Y = -0.39488 },
+									{ Linear = true, X = 0.380167, Y = -0.407854 },
+									{ Linear = true, X = 0.371731, Y = -0.420083 },
+									{ Linear = true, X = 0.362957, Y = -0.431538 },
+									{ Linear = true, X = 0.353867, Y = -0.442187 },
+									{ Linear = true, X = 0.344486, Y = -0.452005 },
+									{ Linear = true, X = 0.334837, Y = -0.460965 },
+									{ Linear = true, X = 0.324946, Y = -0.469045 },
+									{ Linear = true, X = 0.314837, Y = -0.476223 },
+									{ Linear = true, X = 0.304536, Y = -0.482483 },
+									{ Linear = true, X = 0.29407, Y = -0.487807 },
+									{ Linear = true, X = 0.283466, Y = -0.492181 },
+									{ Linear = true, X = 0.272751, Y = -0.495595 },
+									{ Linear = true, X = 0.261953, Y = -0.49804 },
+									{ Linear = true, X = 0.251098, Y = -0.49951 },
+									{ Linear = true, X = 0.240216, Y = -0.5 },
+									{ Linear = true, X = 0.233491, Y = -0.499697 },
+									{ Linear = true, X = 0.226782, Y = -0.498789 },
+									{ Linear = true, X = 0.220108, Y = -0.497278 },
+									{ Linear = true, X = 0.213486, Y = -0.495168 },
+									{ Linear = true, X = 0.206932, Y = -0.492464 },
+									{ Linear = true, X = 0.200464, Y = -0.489174 },
+									{ Linear = true, X = 0.194098, Y = -0.485305 },
+									{ Linear = true, X = 0.18785, Y = -0.480869 },
+									{ Linear = true, X = 0.181737, Y = -0.475875 },
+									{ Linear = true, X = 0.175774, Y = -0.470337 },
+									{ Linear = true, X = 0.169976, Y = -0.46427 },
+									{ Linear = true, X = 0.164358, Y = -0.457688 },
+									{ Linear = true, X = 0.158936, Y = -0.450609 },
+									{ Linear = true, X = 0.153722, Y = -0.443051 },
+									{ Linear = true, X = 0.148729, Y = -0.435032 },
+									{ Linear = true, X = 0.143972, Y = -0.426575 },
+									{ Linear = true, X = 0.139462, Y = -0.4177 },
+									{ Linear = true, X = 0.13521, Y = -0.408431 },
+									{ Linear = true, X = 0.131228, Y = -0.39879 },
+									{ Linear = true, X = 0.127526, Y = -0.388803 },
+									{ Linear = true, X = 0.124113, Y = -0.378496 },
+									{ Linear = true, X = 0.120998, Y = -0.367895 },
+									{ Linear = true, X = 0.118189, Y = -0.357027 },
+									{ Linear = true, X = 0.115694, Y = -0.34592 },
+									{ Linear = true, X = 0.113518, Y = -0.334602 },
+									{ Linear = true, X = 0.111667, Y = -0.323103 },
+									{ Linear = true, X = 0.110146, Y = -0.311452 },
+									{ Linear = true, X = 0.108959, Y = -0.299679 },
+									{ Linear = true, X = 0.108109, Y = -0.287815 },
+									{ Linear = true, X = 0.107598, Y = -0.275889 },
+									{ Linear = true, X = 0.107428, Y = -0.263932 },
+									{ Linear = true, X = 0.107533, Y = -0.256542 },
+									{ Linear = true, X = 0.107849, Y = -0.249172 },
+									{ Linear = true, X = 0.108374, Y = -0.241839 },
+									{ Linear = true, X = 0.109108, Y = -0.234563 },
+									{ Linear = true, X = 0.110048, Y = -0.227362 },
+									{ Linear = true, X = 0.111192, Y = -0.220256 },
+									{ Linear = true, X = 0.112536, Y = -0.213261 },
+									{ Linear = true, X = 0.114079, Y = -0.206396 },
+									{ Linear = true, X = 0.115815, Y = -0.199679 },
+									{ Linear = true, X = 0.11774, Y = -0.193127 },
+									{ Linear = true, X = 0.119849, Y = -0.186757 },
+									{ Linear = true, X = 0.122137, Y = -0.180585 },
+									{ Linear = true, X = 0.124598, Y = -0.174627 },
+									{ Linear = true, X = 0.127226, Y = -0.168898 },
+									{ Linear = true, X = 0.130014, Y = -0.163413 },
+									{ Linear = true, X = 0.132954, Y = -0.158186 },
+									{ Linear = true, X = 0.136039, Y = -0.153231 },
+									{ Linear = true, X = 0.139261, Y = -0.148559 },
+									{ Linear = true, X = 0.142613, Y = -0.144184 },
+									{ Linear = true, X = 0.146085, Y = -0.140116 },
+									{ Linear = true, X = 0.149668, Y = -0.136367 },
+									{ Linear = true, X = 0.153353, Y = -0.132944 },
+									{ Linear = true, X = 0.157132, Y = -0.129858 },
+									{ Linear = true, X = 0.160993, Y = -0.127116 },
+									{ Linear = true, X = 0.164928, Y = -0.124725 },
+									{ Linear = true, X = 0.168925, Y = -0.122691 },
+									{ Linear = true, X = 0.172975, Y = -0.121021 },
+									{ Linear = true, X = 0.177068, Y = -0.119716 },
+									{ Linear = true, X = 0.181193, Y = -0.118783 },
+									{ Linear = true, X = 0.185339, Y = -0.118221 },
+									{ Linear = true, X = 0.189496, Y = -0.118034 },
+									{ Linear = true, X = 0.192065, Y = -0.11815 },
+									{ Linear = true, X = 0.194627, Y = -0.118497 },
+									{ Linear = true, X = 0.197176, Y = -0.119074 },
+									{ Linear = true, X = 0.199706, Y = -0.11988 },
+									{ Linear = true, X = 0.202209, Y = -0.120912 },
+									{ Linear = true, X = 0.204679, Y = -0.122169 },
+									{ Linear = true, X = 0.207111, Y = -0.123647 },
+									{ Linear = true, X = 0.209498, Y = -0.125342 },
+									{ Linear = true, X = 0.211833, Y = -0.127249 },
+									{ Linear = true, X = 0.21411, Y = -0.129364 },
+									{ Linear = true, X = 0.216325, Y = -0.131682 },
+									{ Linear = true, X = 0.218471, Y = -0.134196 },
+									{ Linear = true, X = 0.220542, Y = -0.1369 },
+									{ Linear = true, X = 0.222534, Y = -0.139787 },
+									{ Linear = true, X = 0.22444, Y = -0.142849 },
+									{ Linear = true, X = 0.226258, Y = -0.14608 },
+									{ Linear = true, X = 0.22798, Y = -0.14947 },
+									{ Linear = true, X = 0.229604, Y = -0.15301 },
+									{ Linear = true, X = 0.231125, Y = -0.156693 },
+									{ Linear = true, X = 0.232539, Y = -0.160507 },
+									{ Linear = true, X = 0.233843, Y = -0.164444 },
+									{ Linear = true, X = 0.235033, Y = -0.168494 },
+									{ Linear = true, X = 0.236106, Y = -0.172645 },
+									{ Linear = true, X = 0.237059, Y = -0.176887 },
+									{ Linear = true, X = 0.23789, Y = -0.18121 },
+									{ Linear = true, X = 0.238597, Y = -0.185603 },
+									{ Linear = true, X = 0.239178, Y = -0.190053 },
+									{ Linear = true, X = 0.239631, Y = -0.19455 },
+									{ Linear = true, X = 0.239956, Y = -0.199082 },
+									{ Linear = true, X = 0.240151, Y = -0.203637 },
+									{ Linear = true, X = 0.240216, Y = -0.208204 },
+									{ Linear = true, X = 0.240176, Y = -0.211027 },
+									{ Linear = true, X = 0.240055, Y = -0.213842 },
+									{ Linear = true, X = 0.239855, Y = -0.216643 },
+									{ Linear = true, X = 0.239575, Y = -0.219422 },
+									{ Linear = true, X = 0.239215, Y = -0.222172 },
+									{ Linear = true, X = 0.238779, Y = -0.224887 },
+									{ Linear = true, X = 0.238265, Y = -0.227559 },
+									{ Linear = true, X = 0.237676, Y = -0.230181 },
+									{ Linear = true, X = 0.237013, Y = -0.232746 },
+									{ Linear = true, X = 0.236277, Y = -0.235249 },
+									{ Linear = true, X = 0.235472, Y = -0.237682 },
+									{ Linear = true, X = 0.234598, Y = -0.24004 },
+									{ Linear = true, X = 0.233658, Y = -0.242315 },
+									{ Linear = true, X = 0.232654, Y = -0.244504 },
+									{ Linear = true, X = 0.231589, Y = -0.246599 },
+									{ Linear = true, X = 0.230466, Y = -0.248595 },
+									{ Linear = true, X = 0.229288, Y = -0.250488 },
+									{ Linear = true, X = 0.228057, Y = -0.252272 },
+									{ Linear = true, X = 0.226777, Y = -0.253944 },
+									{ Linear = true, X = 0.225451, Y = -0.255497 },
+									{ Linear = true, X = 0.224082, Y = -0.25693 },
+									{ Linear = true, X = 0.222674, Y = -0.258237 },
+									{ Linear = true, X = 0.221231, Y = -0.259416 },
+									{ Linear = true, X = 0.219756, Y = -0.260463 },
+									{ Linear = true, X = 0.218253, Y = -0.261376 },
+									{ Linear = true, X = 0.216726, Y = -0.262153 },
+									{ Linear = true, X = 0.215179, Y = -0.262791 },
+									{ Linear = true, X = 0.213616, Y = -0.263289 },
+									{ Linear = true, X = 0.21204, Y = -0.263646 },
+									{ Linear = true, X = 0.210457, Y = -0.26386 },
+									{ Linear = true, X = 0.208869, Y = -0.263932 },
+									{ Linear = true, X = 0.207888, Y = -0.263888 },
+									{ Linear = true, X = 0.206909, Y = -0.263755 },
+									{ Linear = true, X = 0.205935, Y = -0.263535 },
+									{ Linear = true, X = 0.204969, Y = -0.263227 },
+									{ Linear = true, X = 0.204013, Y = -0.262833 },
+									{ Linear = true, X = 0.203069, Y = -0.262352 },
+									{ Linear = true, X = 0.202141, Y = -0.261788 },
+									{ Linear = true, X = 0.201229, Y = -0.261141 },
+									{ Linear = true, X = 0.200337, Y = -0.260412 },
+									{ Linear = true, X = 0.199467, Y = -0.259604 },
+									{ Linear = true, X = 0.198621, Y = -0.258719 },
+									{ Linear = true, X = 0.197802, Y = -0.257759 },
+									{ Linear = true, X = 0.19701, Y = -0.256726 },
+									{ Linear = true, X = 0.19625, Y = -0.255623 },
+									{ Linear = true, X = 0.195521, Y = -0.254453 },
+									{ Linear = true, X = 0.194827, Y = -0.253219 },
+									{ Linear = true, X = 0.194169, Y = -0.251925 },
+									{ Linear = true, X = 0.193549, Y = -0.250572 },
+									{ Linear = true, X = 0.192968, Y = -0.249166 },
+									{ Linear = true, X = 0.192428, Y = -0.247709 },
+									{ Linear = true, X = 0.19193, Y = -0.246205 },
+									{ Linear = true, X = 0.191475, Y = -0.244658 },
+									{ Linear = true, X = 0.191066, Y = -0.243073 },
+									{ Linear = true, X = 0.190702, Y = -0.241452 },
+									{ Linear = true, X = 0.190384, Y = -0.239801 },
+									{ Linear = true, X = 0.190114, Y = -0.238123 },
+									{ Linear = true, X = 0.189892, Y = -0.236423 },
+									{ Linear = true, X = 0.189719, Y = -0.234706 },
+									{ Linear = true, X = 0.189595, Y = -0.232975 },
+									{ Linear = true, X = 0.18952, Y = -0.231235 },
+									{ Linear = true, X = 0.189496, Y = -0.22949 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Phi_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_EyeH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189451, Y = -0.223607 },
+									{ Linear = true, X = 0.217577, Y = -0.223607 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Spiral_Mask", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_EyeV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 8, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.203514, Y = -0.248607 },
+									{ Linear = true, X = 0.203514, Y = -0.198607 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_EyeH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 7 & 9: FIBONACCI BOXES =====
+				Sec_Fib_Border = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.910144, },
+						Height = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Sec_Fib_EyeV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.5 },
+									{ Linear = true, X = 0.107428, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Border", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.118034 },
+									{ Linear = true, X = 0.455072, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut3 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.240216, Y = -0.5 },
+									{ Linear = true, X = 0.240216, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut4 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.107428, Y = -0.263932 },
+									{ Linear = true, X = 0.240216, Y = -0.263932 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut3", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut5 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189496, Y = -0.263932 },
+									{ Linear = true, X = 0.189496, Y = -0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut4", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Fib_Cut6 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 7 or GuideCtrl.SecGuideType == 9, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.189496, Y = -0.208204 },
+									{ Linear = true, X = 0.240216, Y = -0.208204 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut5", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 10: GOLDEN TRIANGLES =====
+				Sec_Tri_Diag = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Fib_Cut6", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Tri_P1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = -0.25965, Y = -0.25965 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Tri_Diag", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Tri_P2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 10, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.5, Y = -0.5 },
+									{ Linear = true, X = 0.25965, Y = 0.25965 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Tri_P1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 11: HARMONIC ARMATURE =====
+				Sec_Diag_D1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Tri_P2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_D2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_D1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_VC = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_D2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_HC = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_VC", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_R1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.5, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_HC", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_R2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_R1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_R3 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.5 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+									{ Linear = true, X = -0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_R2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Diag_R4 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 11, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.5, Y = 0.5 },
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = -0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_R3", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 7: QUADRANT GRID (2x2 SYMMETRY) =====
+				Sec_Quad_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Diag_R4", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.0 },
+									{ Linear = true, X = 0.5, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_TL_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.28, Y = 0.25 },
+									{ Linear = true, X = -0.22, Y = 0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_TL_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.25, Y = 0.22 },
+									{ Linear = true, X = -0.25, Y = 0.28 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_TL_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_TR_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.22, Y = 0.25 },
+									{ Linear = true, X = 0.28, Y = 0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_TL_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_TR_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.25, Y = 0.22 },
+									{ Linear = true, X = 0.25, Y = 0.28 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_TR_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_BL_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.28, Y = -0.25 },
+									{ Linear = true, X = -0.22, Y = -0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_TR_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_BL_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.25, Y = -0.28 },
+									{ Linear = true, X = -0.25, Y = -0.22 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_BL_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_BR_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.22, Y = -0.25 },
+									{ Linear = true, X = 0.28, Y = -0.25 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_BL_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Quad_BR_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 4, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.25, Y = -0.28 },
+									{ Linear = true, X = 0.25, Y = -0.22 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_BR_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 8: HEADROOM & EYELINE (DIALOGUE) =====
+				Sec_HR_Eye = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Quad_BR_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_Phi = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.118034 },
+									{ Linear = true, X = 0.5, Y = 0.118034 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_Eye", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_Top = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.35 },
+									{ Linear = true, X = 0.5, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_Phi", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_Plumb = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.5 },
+									{ Linear = true, X = 0.0, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_Top", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_EyeLH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.196667, Y = 0.166667 },
+									{ Linear = true, X = -0.136667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_Plumb", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_EyeLV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = 0.136667 },
+									{ Linear = true, X = -0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_EyeLH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_EyeRH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.136667, Y = 0.166667 },
+									{ Linear = true, X = 0.196667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_EyeLV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_EyeRV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = 0.136667 },
+									{ Linear = true, X = 0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_EyeRH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_SubjL = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_EyeRV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_HR_SubjR = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 1, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.35 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_SubjL", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 2: LOOKING ROOM / LEAD ROOM =====
+				Sec_Look_Eyeline_H = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_HR_SubjR", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Look_Subj_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = -0.5 },
+									{ Linear = true, X = 0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_Eyeline_H", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Look_EyeCH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.136667, Y = 0.166667 },
+									{ Linear = true, X = 0.196667, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_Subj_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Look_EyeCV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.166667, Y = 0.136667 },
+									{ Linear = true, X = 0.166667, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_EyeCH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Look_Lead_V = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_EyeCV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Look_Center_Tick = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 2, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = 0.136667 },
+									{ Linear = true, X = 0.0, Y = 0.196667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_Lead_V", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 5: NEGATIVE SPACE / ISOLATION =====
+				Sec_Iso_Ground = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.5, Y = -0.166667 },
+									{ Linear = true, X = 0.5, Y = -0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Look_Center_Tick", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Iso_Boundary = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = -0.5 },
+									{ Linear = true, X = -0.166667, Y = 0.5 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Iso_Ground", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Iso_Sky = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.166667, Y = 0.166667 },
+									{ Linear = true, X = 0.5, Y = 0.166667 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Iso_Boundary", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Iso_Subj_CH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.373333, Y = -0.333333 },
+									{ Linear = true, X = -0.293333, Y = -0.333333 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Iso_Sky", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Iso_Subj_CV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 5, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.333333, Y = -0.373333 },
+									{ Linear = true, X = -0.333333, Y = -0.293333 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Iso_Subj_CH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 3: PRECISION VIEWFINDER RETICLE =====
+				Sec_Cross_H1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.08, Y = 0.0 },
+									{ Linear = true, X = -0.015, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Iso_Subj_CV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Cross_H2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.015, Y = 0.0 },
+									{ Linear = true, X = 0.08, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Cross_H1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Cross_V1 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.08 },
+									{ Linear = true, X = 0.0, Y = -0.015 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Cross_H2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Cross_V2 = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = 0.015 },
+									{ Linear = true, X = 0.0, Y = 0.08 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Cross_V1", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Cross_DH = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = -0.003, Y = 0.0 },
+									{ Linear = true, X = 0.003, Y = 0.0 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Cross_V2", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Cross_DV = PolylineMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 3, GuideCtrl.Thickness, 0.0)", },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = false,
+								Points = {
+									{ Linear = true, X = 0.0, Y = -0.003 },
+									{ Linear = true, X = 0.0, Y = 0.003 },
+								},
+							},
+						},
+						EffectMask = Input { SourceOp = "Sec_Cross_DH", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec GUIDE 12: SAFE AREAS =====
+				Sec_Safe_Action = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.93, },
+						Height = Input { Value = 0.93, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Sec_Cross_DV", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Safe_Title = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.90, },
+						Height = Input { Value = 0.90, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Sec_Safe_Action", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+				Sec_Safe_Text = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 0.80, },
+						Height = Input { Value = 0.80, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecGuideType == 12, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Sec_Safe_Title", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+				-- ===== Sec FRAME OUTLINE =====
+				Sec_Frame_Outline_Mask = RectangleMask {
+					Inputs = {
+						Level = Input { Value = 1.0, },
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input { Value = 1.0, },
+						Height = Input { Value = 1.0, },
+						Solid = Input { Value = 0, },
+						BorderWidth = Input { Expression = "iif(GuideCtrl.SecShowOutline == 1, GuideCtrl.Thickness, 0.0)", },
+						EffectMask = Input { SourceOp = "Sec_Safe_Text", Source = "Mask", },
+						PaintMode = Input { Value = "Maximum", },
+					},
+				},
+
+
+				-- ===== PRIMARY GUIDE BACKGROUND =====
+				Pri_GuideLines = Background {
+					Inputs = {
+						GlobalIn = Input { Value = -9999, },
+						GlobalOut = Input { Value = 99999, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						TopLeftRed = Input { Value = 1.0, },
+						TopLeftGreen = Input { Value = 1.0, },
+						TopLeftBlue = Input { Value = 1.0, },
+						TopLeftAlpha = Input { Value = 1.0, },
+						EffectMask = Input { SourceOp = "Pri_Frame_Outline_Mask", Source = "Mask", },
+					},
+				},
+
+				-- ===== PRIMARY ASPECT TRANSFORM =====
+				Pri_AspectTransform = Transform {
+					Inputs = {
+						UseSizeAndAspect = Input { Value = 0, },
+						Input = Input { SourceOp = "Pri_GuideLines", Source = "Output", },
+						XSize = Input {
+							Expression = "iif(GuideCtrl.GuideType >= 7 and GuideCtrl.GuideType <= 9, iif(GuideCtrl.AspectPreset == 1, 0.743840, iif(GuideCtrl.AspectPreset == 2, 0.888889, iif(GuideCtrl.AspectPreset == 3, 0.935673, iif(GuideCtrl.AspectPreset == 4, 0.960961, iif(GuideCtrl.AspectPreset == 6, 0.883789, iif(GuideCtrl.AspectPreset == 7, 0.824045, iif(GuideCtrl.AspectPreset == 8, 0.347644, iif(GuideCtrl.AspectPreset == 9, 0.618034, iif(GuideCtrl.AspectPreset == 11, 0.795046, iif(GuideCtrl.AspectPreset == 13, 0.874032, iif(GuideCtrl.AspectPreset == 14, 0.756501, 1.0))))))))))), iif(GuideCtrl.AspectPreset == 5, 0.9375, iif(GuideCtrl.AspectPreset == 6, 0.804375, iif(GuideCtrl.AspectPreset == 7, 0.75, iif(GuideCtrl.AspectPreset == 8, 0.316406, iif(GuideCtrl.AspectPreset == 9, 0.5625, iif(GuideCtrl.AspectPreset == 10, 0.910144, iif(GuideCtrl.AspectPreset == 12, 0.974279, iif(GuideCtrl.AspectPreset == 13, 0.795495, 1.0))))))))) * GuideCtrl.CustomWidth",
+						},
+						YSize = Input {
+							Expression = "iif(GuideCtrl.GuideType >= 7 and GuideCtrl.GuideType <= 9, iif(GuideCtrl.AspectPreset == 1, 0.743840, iif(GuideCtrl.AspectPreset == 2, 0.888889, iif(GuideCtrl.AspectPreset == 3, 0.935673, iif(GuideCtrl.AspectPreset == 4, 0.960961, iif(GuideCtrl.AspectPreset == 6, 0.883789, iif(GuideCtrl.AspectPreset == 7, 0.824045, iif(GuideCtrl.AspectPreset == 8, 0.347644, iif(GuideCtrl.AspectPreset == 9, 0.618034, iif(GuideCtrl.AspectPreset == 11, 0.795046, iif(GuideCtrl.AspectPreset == 13, 0.874032, iif(GuideCtrl.AspectPreset == 14, 0.756501, 1.0))))))))))), iif(GuideCtrl.AspectPreset == 1, 0.743840, iif(GuideCtrl.AspectPreset == 2, 0.888889, iif(GuideCtrl.AspectPreset == 3, 0.935673, iif(GuideCtrl.AspectPreset == 4, 0.960961, iif(GuideCtrl.AspectPreset == 11, 0.795046, iif(GuideCtrl.AspectPreset == 14, 0.756501, 1.0))))))) * GuideCtrl.CustomHeight",
+						},
+						Angle = Input { Expression = "GuideCtrl.RotationAngle", },
+						FlipHoriz = Input { Expression = "GuideCtrl.FlipH", },
+						FlipVert = Input { Expression = "GuideCtrl.FlipV", },
+					},
+				},
+
+				-- ===== PRIMARY MERGE (TIMELINE VIDEO AS BACKGROUND) =====
+				PrimaryMerge = Merge {
+					Inputs = {
+						Foreground = Input { SourceOp = "Pri_AspectTransform", Source = "Output", },
+						Blend = Input { Value = 0.85, },
+					},
+				},
+
+				-- ===== SECONDARY GUIDE BACKGROUND =====
+				Sec_GuideLines = Background {
+					Inputs = {
+						GlobalIn = Input { Value = -9999, },
+						GlobalOut = Input { Value = 99999, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						TopLeftRed = Input { Value = 0.2, },
+						TopLeftGreen = Input { Value = 0.85, },
+						TopLeftBlue = Input { Value = 1.0, },
+						TopLeftAlpha = Input { Value = 1.0, },
+						EffectMask = Input { SourceOp = "Sec_Frame_Outline_Mask", Source = "Mask", },
+					},
+				},
+
+				-- ===== SECONDARY ASPECT TRANSFORM =====
+				Sec_AspectTransform = Transform {
+					Inputs = {
+						UseSizeAndAspect = Input { Value = 0, },
+						Input = Input { SourceOp = "Sec_GuideLines", Source = "Output", },
+						XSize = Input {
+							Expression = "iif(GuideCtrl.SecGuideType >= 7 and GuideCtrl.SecGuideType <= 9, iif(GuideCtrl.SecAspectPreset == 1, 0.743840, iif(GuideCtrl.SecAspectPreset == 2, 0.888889, iif(GuideCtrl.SecAspectPreset == 3, 0.935673, iif(GuideCtrl.SecAspectPreset == 4, 0.960961, iif(GuideCtrl.SecAspectPreset == 6, 0.883789, iif(GuideCtrl.SecAspectPreset == 7, 0.824045, iif(GuideCtrl.SecAspectPreset == 8, 0.347644, iif(GuideCtrl.SecAspectPreset == 9, 0.618034, iif(GuideCtrl.SecAspectPreset == 11, 0.795046, iif(GuideCtrl.SecAspectPreset == 13, 0.874032, iif(GuideCtrl.SecAspectPreset == 14, 0.756501, 1.0))))))))))), iif(GuideCtrl.SecAspectPreset == 5, 0.9375, iif(GuideCtrl.SecAspectPreset == 6, 0.804375, iif(GuideCtrl.SecAspectPreset == 7, 0.75, iif(GuideCtrl.SecAspectPreset == 8, 0.316406, iif(GuideCtrl.SecAspectPreset == 9, 0.5625, iif(GuideCtrl.SecAspectPreset == 10, 0.910144, iif(GuideCtrl.SecAspectPreset == 12, 0.974279, iif(GuideCtrl.SecAspectPreset == 13, 0.795495, 1.0))))))))) * GuideCtrl.SecCustomWidth",
+						},
+						YSize = Input {
+							Expression = "iif(GuideCtrl.SecGuideType >= 7 and GuideCtrl.SecGuideType <= 9, iif(GuideCtrl.SecAspectPreset == 1, 0.743840, iif(GuideCtrl.SecAspectPreset == 2, 0.888889, iif(GuideCtrl.SecAspectPreset == 3, 0.935673, iif(GuideCtrl.SecAspectPreset == 4, 0.960961, iif(GuideCtrl.SecAspectPreset == 6, 0.883789, iif(GuideCtrl.SecAspectPreset == 7, 0.824045, iif(GuideCtrl.SecAspectPreset == 8, 0.347644, iif(GuideCtrl.SecAspectPreset == 9, 0.618034, iif(GuideCtrl.SecAspectPreset == 11, 0.795046, iif(GuideCtrl.SecAspectPreset == 13, 0.874032, iif(GuideCtrl.SecAspectPreset == 14, 0.756501, 1.0))))))))))), iif(GuideCtrl.SecAspectPreset == 1, 0.743840, iif(GuideCtrl.SecAspectPreset == 2, 0.888889, iif(GuideCtrl.SecAspectPreset == 3, 0.935673, iif(GuideCtrl.SecAspectPreset == 4, 0.960961, iif(GuideCtrl.SecAspectPreset == 11, 0.795046, iif(GuideCtrl.SecAspectPreset == 14, 0.756501, 1.0))))))) * GuideCtrl.SecCustomHeight",
+						},
+						Angle = Input { Expression = "GuideCtrl.SecRotationAngle", },
+						FlipHoriz = Input { Expression = "GuideCtrl.SecFlipH", },
+						FlipVert = Input { Expression = "GuideCtrl.SecFlipV", },
+					},
+				},
+
+				-- ===== SECONDARY MERGE =====
+				SecondaryMerge = Merge {
+					Inputs = {
+						Background = Input { SourceOp = "PrimaryMerge", Source = "Output", },
+						Foreground = Input { SourceOp = "Sec_AspectTransform", Source = "Output", },
+						Blend = Input { Expression = "GuideCtrl.SecOpacity * GuideCtrl.EnableSecondary", },
+					},
+				},
+
+				-- ===== LETTERBOX SURROUND MATTE (ARRI / SMALLHD VIEWFINDER SIMULATION) =====
+				LetterboxMask = RectangleMask {
+					Inputs = {
+						Center = Input { Value = { 0.5, 0.5 }, },
+						Width = Input {
+							Expression = "(iif(GuideCtrl.AspectPreset == 5, 0.9375, iif(GuideCtrl.AspectPreset == 6, 0.804375, iif(GuideCtrl.AspectPreset == 7, 0.75, iif(GuideCtrl.AspectPreset == 8, 0.316406, iif(GuideCtrl.AspectPreset == 9, 0.5625, iif(GuideCtrl.AspectPreset == 10, 0.910144, iif(GuideCtrl.AspectPreset == 12, 0.974279, iif(GuideCtrl.AspectPreset == 13, 0.795495, 1.0))))))))) * GuideCtrl.CustomWidth",
+						},
+						Height = Input {
+							Expression = "(iif(GuideCtrl.AspectPreset == 1, 0.743840, iif(GuideCtrl.AspectPreset == 2, 0.888889, iif(GuideCtrl.AspectPreset == 3, 0.935673, iif(GuideCtrl.AspectPreset == 4, 0.960961, iif(GuideCtrl.AspectPreset == 11, 0.795046, iif(GuideCtrl.AspectPreset == 14, 0.756501, 1.0))))))) * GuideCtrl.CustomHeight",
+						},
+						Invert = Input { Value = 1, },
+						Solid = Input { Value = 1, },
+						Level = Input { Value = 1.0, },
+					},
+				},
+				LetterboxBg = Background {
+					Inputs = {
+						GlobalIn = Input { Value = -9999, },
+						GlobalOut = Input { Value = 99999, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						TopLeftRed = Input { Value = 0.0, },
+						TopLeftGreen = Input { Value = 0.0, },
+						TopLeftBlue = Input { Value = 0.0, },
+						TopLeftAlpha = Input { Value = 1.0, },
+						EffectMask = Input { SourceOp = "LetterboxMask", Source = "Mask", },
+					},
+				},
+				LetterboxMerge = Merge {
+					Inputs = {
+						Background = Input { SourceOp = "SecondaryMerge", Source = "Output", },
+						Foreground = Input { SourceOp = "LetterboxBg", Source = "Output", },
+						Blend = Input { Expression = "GuideCtrl.SurroundShading", },
+					},
+				},
+			},
+		},
+	},
+	ActiveTool = "CinematicCompositionToolkit"
+}
